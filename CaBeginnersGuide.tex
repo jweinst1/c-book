@@ -1,0 +1,46 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{extarrows}
+\usepackage{tikz-cd}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+% setting set for c \begin{lstlisting}[style=customc]
+
+% Chemical Programming Book
+
+\title{C: A Beginner's Guide}
+\author{Joshua Weinstein}
+\date{2018}
+
+
+\begin{document}
+% Title Page
+\maketitle
+
+
+% Table of Contents Page
+\tableofcontents
+
+\newpage
+% Beginning of Content
+\input{sections/Preface}
+\input{chapters/Introduction}
+
+
+\end{document}
