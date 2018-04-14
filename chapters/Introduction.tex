@@ -9,4 +9,63 @@
 \section{Programs and Computing}
 
 \par In the most basic sense, a computer is a machine which can complete tasks by running instructions commonly known as "code". A computer cannot read or understand human languages, like English. A computer only understands instructions in a format known as \textit{binary} code. Binary code is composed entirely of one's and zeros. $00000001$ is an example of binary, which actually translates to the number, $1$. 
-\paragraph{ A programming language} is a human readable language which is \textit{compiled} into binary code.
+\paragraph{ A programming language} is a human readable language which is \textit{compiled} into binary code. Such languages serve as a intermediate way of communication between a computer's mechanics and a human mind's mechanics. These languages allow humans to instruct computers to perform almost any task imaginable. A program is a file or series of files of code written in a particular programming language. Web browsers, mobile phone applications, websites, are all programs. All of them are in some way compiled into binary code, which is then executed by a computer as instructions. Programs that need high performance are often written in C or C++, a tightly related language to C.
+% layer language diagram
+\begin{figure}[h]
+  \begin{center}
+  \begin{tikzcd}
+     &Human\hspace{2pt} Language \arrow[d] \\
+     &Programming\hspace{2pt} Language \arrow[d] \\
+     &Binary\hspace{2pt} Language
+   \end {tikzcd}
+   \end{center}
+\caption{The layers of communication between humans and computers}
+\end{figure}
+
+\par The format in which humans convey information through language is very different than how computers convey information. Programming languages are not at all similar to learning a foreign language. The \textit{grammar} of programming languages is far more restricted than that of a spoken language. When two people speak to one another, they are conveying information that is often \textit{declarative} in nature, where information is stated in some format as true. "I cook food," is a declarative sentence, it states data or information, it does not detail commands or instructions to follow.
+\paragraph{Imperative programming} involves the communication and passing of information as commands and instructions. C is an imperative programming language, so is Java, and C++. Such languages focus on grouping commands into executable sets of instructions to compute larger more complex values. In many imperative languages, groupings of commands are called \textit{functions}. In the most basic sense, functions apply commands on some specified set of values.
+\paragraph{A function} is a special set of commands written in code, with some specified input values and output values. Input values to functions are usually called parameters. Functions are used in programming languages to tell the computer to perform specific instructions onto some set of parameters. They generally take the form of:
+
+$$
+function:\hspace{2pt} name(input) \rightarrow output
+$$
+
+The input can be on or more values, so can the output. Functions will be explored more in later chapters. \\
+
+% list of definitions discussed:
+\emph{\textbf{Definitions}}
+\begin{enumerate}
+\item \textbf{Declarative programming}: A style of programming where data is stated and declared.
+\item \textbf{Imperative programming}: A style of programming that uses commands and instructions that compute data.
+\item \textbf{Functions}: A group of commands executed on some specified set of values.
+\end{enumerate}
+
+\section{Memory}
+
+\paragraph{   } When a person performs day to day tasks, like driving to work, making meals, or writing letters, they use their memory of past events. Even though the brain is not a computer, it still records data from events we experience which we think about or remember at some later time. When a computer executes binary code or compiled code from a programming language, it needs to use memory. If humans had no way of remembering or recalling anything in the past, they could never solve any problem, mathematical or otherwise. Yet, a computer's memory is not truly chronological. Consider the following example:
+
+\begin{center}
+\emph{Tom needs to buy groceries to make a soup. He knows he needs to buy tomatoes and corn. He makes a list, specifying one tomato and two cobs of corn. He goes tot he grocery store and checks his list, to buy the items he wanted.}
+\end{center}
+
+In this example, \textit{Tom} needs to buy some amount of vegetables, so he uses a list to check which items he should buy. If a computer were to purchase or order groceries, it would also need a list of what items to purchase. In the previous section, we discussed functions, an arrangement of instructions that are executed on some input values. Lets look at an abstract example.
+
+$$
+function:\hspace{2pt} BuyGroceries(list) \rightarrow PurchasedItems
+$$
+
+Here, a function is taking in an input of a list, and outputting the items the list stated to be purchased. The output is related to what the list holds in terms of data. More specifically:
+
+% arrow diagram for I/O of a general function
+\begin{center}
+\begin{tikzcd}
+ &List \arrow[dash]{d} \arrow[r] &PurchasedItems \arrow[dash]{d} \\
+ &input &output
+\end{tikzcd}
+\end{center}
+
+To keep track of the list, when a computer is executing commands, it needs to store that list. Secondly, it needs a place to output those purchased items to. To store such information, for a simple function as shown or many other tasks, a computer uses memory.
+
+\subsection{What is memory?}
+
+\paragraph{   } Memory is a physical component inside a computer that stores temporary data and information necessary for a computer to complete tasks.

@@ -4,3 +4,9 @@
 \contentsline {paragraph}{ }{5}
 \contentsline {section}{\numberline {1.1}Programs and Computing}{5}
 \contentsline {paragraph}{ A programming language}{5}
+\contentsline {paragraph}{Imperative programming}{6}
+\contentsline {paragraph}{A function}{6}
+\contentsline {section}{\numberline {1.2}Memory}{7}
+\contentsline {paragraph}{ }{7}
+\contentsline {subsection}{\numberline {1.2.1}What is memory?}{7}
+\contentsline {paragraph}{ }{7}
