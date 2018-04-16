@@ -68,4 +68,52 @@ To keep track of the list, when a computer is executing commands, it needs to st
 
 \subsection{What is memory?}
 
-\paragraph{   } Memory is a physical component inside a computer that stores temporary data and information necessary for a computer to complete tasks.
+\paragraph{   } Memory is a physical component inside a computer that stores temporary data and information necessary for a computer to complete tasks. When a program receives an input, such as a mouse click on a button, or message of text, it needs to have a place to store that input, and any other values it needs to compute the desired output. To start with, we can think of memory as a finite number of boxes, each which can store a value. Such boxes allow us to reference that value in order to change it or create new values. Here is an example: \\
+
+\emph{\textbf{Example:}}
+% example picture of three boxes of memory.
+\begin{center}
+$$
+A:[0] \hspace{3pt} B:[0] \hspace{3pt} C:[0]
+$$
+
+\emph{Let A, B, and C be boxes of memory. Initially, they all hold the value 0. A memory box must always hold some value. Next, let us inset or load numbers into boxes B and C.}
+
+\begin{tikzcd}
+& &2 \arrow[d, "load"] &3 \arrow[d, "load"] \\
+&A:[0] &B:[2] &C:[3]
+\end{tikzcd}
+
+\emph{Memory box B and C can be added together, with the result of the mathematical operation being stored in box A. }
+
+\begin{tikzcd}
+&B \arrow[rd] &  &C \arrow[ld] \\
+& &A:[5] &
+\end{tikzcd}
+
+\emph{The final state of each memory box is :}
+
+$$
+A:[5] \hspace{3pt} B:[2] \hspace{3pt} C:[3]
+$$
+\end{center}
+
+In this example, at every step, the memory of what value A, B, or C holds is persisted. Those values are stored and changed as the commands continue to be executed. This is an example of how memory in registers also works, a topic that will be covered later on.
+
+\subsubsection{Types of memory}
+
+In a computer, there are a few different types of memory. They are used for different tasks, and different roles. Some are also slower than others.
+
+\begin{enumerate}
+\item \textbf{Registers}: This is the fastest, most highly accessible form of memory, it's commonly use in executing instructions.
+\item \textbf{RAM}: Also known as simply memory or local memory, this is memory used to store temporary values during the time a program is running. In most programming languages assignment statements, such as $a = 3$ are using local memory.
+\item \textbf{Disk}: This is where a computer stores files, the least accessible, yet longest lasting form of memory. 
+\end{enumerate}
+
+Memory is measured in units. The smallest, accessible unit of memory is called a byte. Computers and files often measure data in \textit{kilobytes} or \textit{megabytes}. These mean a thousand bytes and a million bytes respectively. The number system behind memory and data will be discussed in the next section.
+
+\section{Numbers}
+
+A computer and it's programs use numbers, just as humans encounter and use numbers in their daily lives. Phone numbers, street addresses, freeway exits, numbers exist all around us. Numbers are the core component of any data inside a computer. Computers can only understand sequences of numbers, they don't see text or images like living beings can. In a previous section, we discussed \textit{binary} language in reference to communicating with a computer. Binary language is just a composed sequence of ones and zeros. This section will provide insight into the system and types of numbers used in programming, such as binary numbers.
+
+\paragraph{Numbers} are quantifiable, distinct values that exist in different sizes, composed of digits. The size of a number is determined by it's radix. 
