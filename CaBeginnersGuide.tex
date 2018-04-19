@@ -5,7 +5,9 @@
 \usepackage{listings}
 \usepackage{extarrows}
 \usepackage{tikz-cd}
+\usepackage{xparse}
 
+% used for code writing in the book
 \lstdefinestyle{customc}{
   belowcaptionskip=1\baselineskip,
   breaklines=true,
@@ -18,6 +20,10 @@
   commentstyle=\itshape\color{purple!40!black},
   identifierstyle=\color{blue},
   stringstyle=\color{orange},
+}
+% writes inline code snippets
+\NewDocumentCommand{\codeword}{v}{%
+\texttt{\textcolor{blue}{#1}}%
 }
 
 % setting set for c \begin{lstlisting}[style=customc]

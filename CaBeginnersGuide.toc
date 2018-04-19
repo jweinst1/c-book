@@ -20,3 +20,4 @@
 \contentsline {paragraph}{ }{11}
 \contentsline {subsection}{\numberline {1.4.1}Structure of a Program}{12}
 \contentsline {paragraph}{ }{12}
+\contentsline {paragraph}{int}{12}

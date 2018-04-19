@@ -233,3 +233,20 @@ This program is a basic, fundamental piece of code that tells the computer to \t
 \end{center}
 \caption{ A diagram of a program with a main function.}
 \end{figure}
+
+Within the main function, you see the parameters specified as \codeword{void}, meaning the function accepts no parameters. In later chapters, you will learn \codeword{void} is a \textit{type} that indicates an absence of a form or structure.
+
+\par At the top of the program there is a statement that begins with \codeword{#include}. This statement pastes in the textual content of another file into the current one. The include statement allows multiple files to be used in a single C program. The pointed brackets, $<\dots>$, hold the named of a file to be included. In this particular situation, the program includes \codeword{stdio.h}, a file that comes packed with a C compiler, which contains functionality for a program to print output, receive input, or write to files. This header file along with other standard files will be discussed later. 
+
+\paragraph{int} to the left of the \emph{main} function indicates the return type of the function. In C, all functions specify the type of output they return. In general, \emph{return} is a keyword used in many programming languages to signify the output of a function. It does not mean that what is returned had to be originally passed into the function.
+
+\par The \codeword{puts} function is a function from the standard file \codeword{stdio.h}, which takes a string as an input and outputs that string to the terminal. A "string" in C, or any programming language is a type of data that holds readable text. It is composed of 8-bit integers called \textit{characters}, the represent readable symbols such as $h$ or $e$. The mechanics of strings and characters will be discussed in another chapter. \\
+
+\emph{\textbf{Definitions}}
+\begin{enumerate}
+\item \textbf{Header File}: A file which allows multiple C files to be compiled into one executable.
+\item \textbf{stdio.h}: A file packaged with a C compiler that provides functions to receive input and output, or write and read to files.
+\item \textbf{main function}: The function that acts as an entry point to a C program.
+\item \textbf{include}: A pre-processor command that pastes the text of another C file into the current C file.
+\item \textbf{return type}: A signifier in C function syntax that specifies the size and kind of value being outputted from a function.
+\end{enumerate}
