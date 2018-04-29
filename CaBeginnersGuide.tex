@@ -7,26 +7,15 @@
 \usepackage{tikz-cd}
 \usepackage{xparse}
 
-% used for code writing in the book
-\lstdefinestyle{customc}{
-  belowcaptionskip=1\baselineskip,
-  breaklines=true,
-  frame=L,
-  xleftmargin=\parindent,
-  language=C,
-  showstringspaces=false,
-  basicstyle=\footnotesize\ttfamily,
-  keywordstyle=\bfseries\color{green!40!black},
-  commentstyle=\itshape\color{purple!40!black},
-  identifierstyle=\color{blue},
-  stringstyle=\color{orange},
-}
+% settings for code highlighting in the book.
+\input{settings/CodeSyntax}
+
+
 % writes inline code snippets
 \NewDocumentCommand{\codeword}{v}{%
 \texttt{\textcolor{blue}{#1}}%
 }
 
-% setting set for c \begin{lstlisting}[style=customc]
 
 % Chemical Programming Book
 
@@ -47,6 +36,7 @@
 % Beginning of Content
 \input{sections/Preface}
 \input{chapters/Introduction}
+\input{chapters/Types}
 
 
 \end{document}

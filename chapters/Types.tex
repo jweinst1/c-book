@@ -1,0 +1,107 @@
+\chapter{Types}
+
+\paragraph{   } C is a language that uses types on values in a program. Types exist as a label across some raw from of data. In the previous chapter, we learned that integers in C or other languages exist in sizes, such as 8-bit integers. Types allow the compiler for a C program to recognize the size of the data contained in a value. Knowing the size is extremely useful because it allows a compiler to know  the correct memory that needs to be used while executing commands on that value
+\par  This chapter will introduce the primitive types of C, along with modifiers that can act on types. This chapter will also discuss the concept of type safety, and when type safety can be disobeyed. 
+
+\section{Declaration and Initialization}
+
+\paragraph{   }  In C, all values have a type, signifying the format of data a particular value holds. Values must have their types \textit{declared}. See the following code:
+
+\begin{lstlisting}[style=numc]
+int a;
+char b, c;
+\end{lstlisting}
+
+Here, a is declared as an \codeword{int} and b with c are declared both as a \codeword{char}. This implies any further accessing of these variables will be done according to their declared type. Attempting to re-declare an already declared value, for example, results in an error.
+
+\begin{lstlisting}[style=customc]
+int a;
+char a, c;
+
+ error: redefinition of 'a' with a different type: 'int' vs 'char'
+        int a;
+            ^
+ note: previous definition is here
+        char a, b;
+             ^
+\end{lstlisting}
+
+\emph{\textbf{Note:} Many C compilers, including gcc, give detailed error messages which indicate where the error in the code is. However, the above error is a compile time error, meaning the error is detected by reading the textual input of the C code. Errors that occur during the execution of the program, called runtime errors, are much harder to detect and rarely have error messages.} \\
+
+\par Declaring a type does not assign it any value. Values such as integers shown above are given a default value of zero. Both declaring and initializing in the same statement is permitted. You can also reassign a declared variable, like \emph{a}, to another value of the same type.
+
+\begin{lstlisting}[style=customc]
+int a = 6;
+a = 8;
+\end{lstlisting}
+
+Additionally, attempting to initializing an undeclared variable results in an error, as the C compiler needs to be aware of what kind of data is being held by that value.
+
+\section{Integers}
+
+\paragraph{   } Integers in the C language play an important role in storing whole, numerical values. Integer types are named according to the size of the data they can hold. \codeword{int} is the most widely used and basic integer type in C. Although this can differ depending on the compiler and type of computer a C program is compiled on, the \codeword{int} type is 32-bits long.
+\par You can assign any integer to a variable name, like this
+
+\begin{lstlisting}[style=customc]
+int x = 1;
+\end{lstlisting}
+
+The above code means anytime that \codeword{x} is accessed in the program, it will hold the value $1$. As mentioned, the int type is a 32-bit integer. Yet, 32 bits are not needed to represent the number one. In fact, only 1 bit is needed to represent one and subsequently the number zero. However, a single bit is not an \textit{addressable} size of memory, nor is it an efficient chunk of memory to deal with. Therefore, the smallest units of memory used in C are bytes, or 8-bit integers. Let's take a closer look in what is happening in the above statement:
+
+$$
+x \longrightarrow [00000001, 00000000, 00000000, 00000000]
+$$
+
+or if we simply want to view the bytes as decimal numbers,
+
+$$
+x \longrightarrow [1, 0, 0, 0]
+$$
+
+A memory chunk of 32 bits, or four \textit{bytes} is being assigned to x. Since 1 is a number that can fit into a single byte, only the first byte of \codeword{x} is occupied. Despite the number being small, the other bytes of memory are grouped with this value to permit the number to grow and take up more space. Next, lets try and add a larger number to x.
+
+\begin{lstlisting}[style=customc]
+int x = 1;
+x += 300;
+\end{lstlisting}
+
+In C, the \codeword{+=} symbol is an operator that allows you to reassign variables and add to them at the same time. It translates to $x = x + 300$. However, x now holds a value greater than the maximum 8-bit integer of 255. The other three bytes associated with that integer now start holding data, as shown below:
+
+$$
+x  \longrightarrow [45, 1, 0, 0] \equiv 301
+$$
+
+In this example, the 2nd byte of \codeword{x}, $1$, essentially translates to, \emph{this value is 255 plus 45}. The 2nd byte acts as a counter for the number of times 255 is counted in the larger, 32-bit integer. The largest possible 32-bit integer value would be read as $[255, 255, 255, 255]$. If you attempt to store a numeric value larger than what an integer type can hold, it will cause an \emph{overflow} error. These types of errors are usually handled by the C compiler changing the type of the value in order to hold the large number, or stating the number is too large overall:
+
+\begin{lstlisting}[style=customc]
+warning: implicit conversion from 'int' to 'char' changes value from 500 to -12 [-Wconstant-conversion]
+        char ch = 500;
+             ~~   ^~~
+error: integer literal is too large to be represented in any integer type
+        int i = 50000000000000000000;
+                ^
+\end{lstlisting}
+
+A \codeword{char} is a \emph{signed} 8-bit integer, meaning it is a number that can hold the values from $-127$ to $127$. The number zero is counted as a possible value, which is why the positive limit is 127, not 128.
+
+\subsection{Integer Types}
+
+\paragraph{  } C has several different integer types, which differ by their size and usages. Here is a list of all the following integer types: \\
+
+\begin{itemize}
+\item \emph{\textbf{char}}: A 8-bit integer that holds values from -128 to 127. It also represents textual characters.
+\item \emph{\textbf{unsigned char}}: An unsigned version of \emph{char}, holds values from 0 to 255.
+\item \emph{\textbf{short}}: A 16-bit signed integer.
+\item \emph{\textbf{unsigned short}}: A 16-bit unsigned integer.
+\item \emph{\textbf{int}}: A 32-bit signed integer.
+\item \emph{\textbf{unsigned int}}: A 32-bit unsigned integer.
+\item \emph{\textbf{long}}: A 64-bit signed integer.
+\item \emph{\textbf{unsigned long}}: A 64-bit unsigned integer.
+\item \emph{\textbf{size\textunderscore t}}: A special type that always hold the largest size of integer for the given platform.
+\end{itemize}
+
+\par For any integer type, if you don't need negative values, or encountering a negative value would be considered an error, it's best to use \codeword{unsigned} types. Using unsigned types also allows the integers used to hold a higher maximum value.
+
+\subsubsection{The sizeof operator}
+
+In the C programming language, all types have a \emph{known} size.  When C code is compiled into an executable program, the compiler reads and checks for the size of a type it encounters, whether that type is builtin or defined by the code file.
