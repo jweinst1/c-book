@@ -29,3 +29,4 @@
 \contentsline {paragraph}{ }{16}
 \contentsline {subsection}{\numberline {2.2.1}Integer Types}{17}
 \contentsline {paragraph}{ }{17}
+\contentsline {subsubsection}{The sizeof operator}{18}

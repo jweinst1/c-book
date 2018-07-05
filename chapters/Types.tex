@@ -104,4 +104,18 @@ A \codeword{char} is a \emph{signed} 8-bit integer, meaning it is a number that 
 
 \subsubsection{The sizeof operator}
 
-In the C programming language, all types have a \emph{known} size.  When C code is compiled into an executable program, the compiler reads and checks for the size of a type it encounters, whether that type is builtin or defined by the code file.
+In the C programming language, all types have a \emph{known} size.  When C code is compiled into an executable program, the compiler reads and checks for the size of a type it encounters, whether that type is builtin or defined by the code file. It's important to note the \codeword{sizeof} operator always evaluates to a number of bytes, not a number of items or other size unit. Although we have not covered this yet, if the operator is used on an array, it evaluates to the size of the entire array:
+
+\begin{lstlisting}[style=customc]
+int a = 3;
+int b[3];
+printf("The size of a is \%ld\n", sizeof(a));
+printf("The size of b is \%ld\n", sizeof(b));
+\end{lstlisting}
+
+Which results in
+
+\begin{lstlisting}[style=customc]
+The size of a is 4
+The size of b is 12
+\end{lstlisting}
