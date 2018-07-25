@@ -109,8 +109,8 @@ In the C programming language, all types have a \emph{known} size.  When C code 
 \begin{lstlisting}[style=customc]
 int a = 3;
 int b[3];
-printf("The size of a is \%ld\n", sizeof(a));
-printf("The size of b is \%ld\n", sizeof(b));
+printf("The size of a is %ld\n", sizeof(a));
+printf("The size of b is %ld\n", sizeof(b));
 \end{lstlisting}
 
 Which results in
@@ -118,4 +118,21 @@ Which results in
 \begin{lstlisting}[style=customc]
 The size of a is 4
 The size of b is 12
+\end{lstlisting}
+
+\emph{b} is 12 bytes because it's an array size of 3, 32-bit signed integers.
+
+\subsection{Character Types}
+
+\paragraph{  } \textbf{Characters} Are a type of integer that is used to represent textual and binary data. By themselves, they are just 8-bit numbers, that are either signed or unsigned. Unsigned characters are values that range from 0 to 255. They have no specific encoding or textual representation. Signed characters, or the \codeword{char} type represent specific textual symbols, such as \codeword{'$'}. As we will learn later on, data can be encoded in different arrangements. Characters in C are by default encoded in ASCII. 
+
+\par Characters have both a numerical representation and a textual representation. They can be used in both ways. Both the text or number representation of a character type have the same internal data value. In C, the equality operator, \emph{==}, compares if two values are equal or not. It evaluates to 1 if they are, 0 if they are not. In the following example, \emph{102} is equal to {'f'} because they represent the same signed, 8-bit integer.
+
+\begin{lstlisting}[style=numc]
+char a = 'h';
+char b = '*';
+char c = 52;
+printf("%c, %c, %c\n", a, b, c);
+printf("%d, %d, %d\n", a, b, c);
+printf("%d\n", 'f' == 102);
 \end{lstlisting}

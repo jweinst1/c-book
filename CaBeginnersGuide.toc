@@ -30,3 +30,5 @@
 \contentsline {subsection}{\numberline {2.2.1}Integer Types}{17}
 \contentsline {paragraph}{ }{17}
 \contentsline {subsubsection}{The sizeof operator}{18}
+\contentsline {subsection}{\numberline {2.2.2}Character Types}{18}
+\contentsline {paragraph}{ }{18}
